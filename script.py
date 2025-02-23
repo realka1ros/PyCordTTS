@@ -3,22 +3,20 @@ import pyttsx3
 
 #Setting Variables for Easier Calling
 tts = pyttsx3.init()
-
 client = discord.Client(intents=intents)
+intents = discord.Intents.default()
+
+#Setting Bot Intents
+intents.message_content = True
 
 #Text to Speech Configuration
 rate = tts.getProperty('rate')
 tts.setProperty('rate', 200)
-
 volume = tts.getProperty('volume')
 tts.setProperty('volume',1.0)
 tts.runAndWait()
-
 voices = tts.getProperty('voices')
 tts.setProperty('voice', voices[0].id)
-
-intents = discord.Intents.default()
-intents.message_content = True
 
 #When the bot is connected and ready
 @client.event
